@@ -1,0 +1,242 @@
+para verificar a versao do git
+git -v
+
+para limpar a tela do terminal usamos o 
+clear
+
+configurar o username e o email
+git config --global user.name "nome de usuario"
+git config --global user.email "nome.usuario@gmail.com"
+
+para ver a configuração
+git config --global --list
+
+para iniciar o repositorio local
+git init
+este comando cria uma pasta oculta do git
+
+para verificar o status do repositorio
+git status
+
+status mais curto
+git status -s
+
+Untracked files: um ficheiro que não esta a ser controlado pelo sistema do git
+
+adicionar a um sistema do git
+git add nome_do_arquivo.extensao
+ex:
+git add index.html
+
+caso queira algo mais geral
+ex: git add .
+
+
+registrando as alterações no projeto
+git commit -m "representação do que esta mudando no codigo"
+ex:
+git commit -m "adicionando um botao"
+
+não escreveu o -m ""?
+caso voce não escreva a mensagem, vai abrir o editor de texto vim
+quando abrir voce deverar digitar o I para inserir o nome
+logo apos deverar clicar no ESC e adicionar o : e escrever o W write para escrever e o Q para quit
+:wq
+e pronto
+caso não queira fazer pelo vim e so digitar :qa
+quit a board
+
+tem como fazer o add e o commit junto
+git commit -am "mensagem"
+ex:
+git commit -am "adicionando e commitando"
+
+
+para verificar as mensagens de commit, usuario e email
+git log
+
+para deixar mais simples de visualizar 
+git log --oneline
+
+para navegar no historico devemos usar as setinhas
+e para sair devemos digitar o Q
+
+caso queira remover do add
+git rm --cached nome_do_arquivo.extensao
+ex: git rm --cached teste.txt
+para realmente remover e necessario usar o comando
+git rm nome_do_arquivo.extensao
+ex:
+git rm pagina_3.html
+
+caso queira restaurar algo, apos fazer uma modificação
+git restore nome_do_arquivo.extensao
+ex:
+git restore teste.txt
+
+para restaurar algo ao qual foi apagado com o git rm
+devemos usar dois comandos
+1° comando:
+git restore --staged nome_do_arquivo.extensao
+ex:
+git restore --staged teste.txt
+2° comando:
+git restore nome_do_arquivo.extensao
+ex:
+git restore teste.txt
+e pronto
+
+como remover o git do projeto?
+e so apagar a pasta git
+
+git ignore
+e um arquivo ao qual criamos com o nome de
+.gitignore
+dentro dele colocaremos os nomes dos arquivos que não serao mandados para todos os repositorios locais e remotos
+ex:
+teste.txt
+ou tambem podemos usar o *.txt
+ao qual todos os arquivos que tiverem o txt serao ignorados
+ou tes*.txt
+todos os arquivos que começarem com tes irao ser ignorados
+tambem podemos ignorar ../nome_da_pasta
+ex:
+/pasta_ignorada
+
+Branches
+
+Criando a branch
+
+para criarmos uma branch devemos usar o codigo abaixo
+git branch nome_escolhido
+ex:
+git branch bug_fixes
+
+podemos ver a branch tanto pelo master no canto inferior do VS CODE, como pelo git status
+
+Navegando pelas branches
+
+para mudarmos do master para a branch precisamos clicar no master no canto inferior e clicar na branch desejada
+ou tambem podemos usar o codigo
+git checkout nome_do_local
+ex:
+git checkout master
+
+outro comando para mudar de branches
+git switch nome_da_branch
+ex:
+git switch bug_fixes
+
+
+Criar e navegar na branch com um comando
+git checkout -b nome_da_branch
+ex:
+git checkout -b bug_fixes
+
+Juntar branches
+1° ir para a branch que vai receber a atualização no codigo
+ex:
+git switch master
+
+2° adicionar com a merge
+git merge nome_da_branch_com_o_arquivo
+ex:
+git merge bug_fixes
+
+deletar a branch
+git branch -d branch_a_ser_deletar
+ex:
+git branch -d bug_fixes
+
+para navegar entre commits
+git checkout codigo_do_commit
+ex:
+git checkout c4755ed
+obs: estamos num repositorio temporario
+
+para voltar para a estrutura principal
+git checkout master
+
+caso queira ir para um commit e poder mudar ele e so usar este comando
+git checkout codigo_do_commit .
+ex:
+git checkout c4755ed .
+
+clonar repositorios
+
+cd c:
+cd pasta/voce/quer
+ex:
+cd c:
+cd C: ../user/Music/clone
+para clonar o arquivo do git precisamos entra clicar no code e copiar o link com o repositorio
+ex: https://github.com/samucao5/MYSQL.git
+
+Agora use o comando abaixo com o link acima
+
+git clone repositorio_do_git_escolhido
+ex:
+git clone https://github.com/samucao5/MYSQL.git
+
+
+Mude o repositorio do git hub com o codigo do terminal
+1° faça o add
+git add .
+2° faça o commit
+git commit -m "teste"
+3° mande para o git hub pelo git
+git push
+
+Caso voce tenha feito uma mudança pelo o edit do git hub e queira passar essa mudança para o codigo
+e so usar o comando
+git pull
+
+para criamos pastas pelo terminal e so usar o comando 
+mkdir nome_da_pasta
+
+apos criamos a pasta, vamos fazer criar o repostorio 
+git remote add origin https://github.com/samucao5/criando_repositor.git
+git branch -M main
+git push -u origin main
+
+comando especial para garantir que o codigo se enviado se estiver trabalhando com uma equipe
+git pull && git add . && git commit -m "mensagem" && git push
+
+criar branch e passar para o repo remoto
+1° criar a branch
+git branch nome_da_branch
+ex:
+git branch teste
+
+2° passar a branch para o repo remoto
+git push -u origin nome_da_branch_criada
+ex:
+git push -u origin teste
+
+caso queira remover a branch 
+git push origin -d nome_da_branch_criada
+ex:
+git push origin -d teste
+
+recuperação de ficheiros com o comando restore
+1° verificar a versao que eu quero do ficheiro
+git log --oneline
+
+2° pegar o codigo
+ex: 44f0c09
+
+3°restaurar o projeto
+git restore --source=codigo_da_versao arquivo_desejado.extensao
+ex:
+git restore --source=44f0c09 rota.php
+
+como ver as diferenças dos commits
+1° pegar o codigo
+git log --oneline
+
+2° vendo as diferenças entre os commits
+git diff codigo_deseja_1 codigo_deseja_2
+ex:
+git diff 969f164 44f0c09
+
+
