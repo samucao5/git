@@ -1,0 +1,68 @@
+passo a passo git
+1° iniciar o git no projeto
+git init
+
+2° adicionar os arquivos 
+git add .
+
+3° ver os status dos arquivos
+git status
+
+4° commitar os arquivos
+git commit -m "commit 1"
+
+5° ver os commit criados
+git log
+
+6° criar uma branch para não prejudicar a master
+git branch nome_da_branch
+
+7° ver todas as branch criadas
+git branch 
+
+8° mudar para a branch criada
+git checkout nome_da_branch
+ou
+git switch nome_da_branch
+
+9° adicionar os arquivos mudados
+git add .
+
+10° ver os status dos arquivos da branch
+git status
+
+11° commitar os arquivos da branch
+git commmit -m "commit branch"
+
+12° ver os commit criados
+git log
+
+12° mudar para a branch master
+git checkout master
+
+13° passar os arquivos para a branch principal
+git merge nome_da_branch_com_o_arquivo_modificado
+
+
+mude o repositorio do git hub com o codigo do terminal
+1° faça o add
+git add .
+2° faça o commit
+git commit -m "teste"
+3° mande para o git hub pelo git
+git push
+
+caso voce tenha feito uma mudança pelo o edit do git hub e queira passar essa mudança para o codigo
+so usar o comando
+git pull
+
+para criar o repostorio caso não esteja criado
+git remote add origin nome_do_repositorio_do_git
+git branch -M main
+git push -u origin main
+
+comando especial para garantir que o codigo se enviado se estiver trabalhando com uma equipe
+git pull && git add . && git commit -m "mensagem" && git push
+
+
+
