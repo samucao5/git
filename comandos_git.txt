@@ -1,4 +1,4 @@
-Para verificar a versao do git
+para verificar a versao do git
 git -v
 
 para limpar a tela do terminal usamos o 
